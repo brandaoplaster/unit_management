@@ -8,4 +8,8 @@ defmodule UnitManagement.States.Get do
       nil -> {:error, Error.build_state_not_found_error()}
     end
   end
+
+  def get_all() do
+    Repo.all(State)
+  end
 end
