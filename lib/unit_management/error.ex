@@ -15,4 +15,8 @@ defmodule UnitManagement.Error do
   end
 
   def build_state_not_found_error, do: build(:not_found, "State not found")
+
+  def build_state_not_update(%Changeset{} = changeset) do
+    build(:bad_request, changeset)
+  end
 end
