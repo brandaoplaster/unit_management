@@ -13,4 +13,6 @@ defmodule UnitManagement.Error do
       message: message
     }
   end
+
+  def build_state_not_found_error, do: build(:not_found, "State not found")
 end

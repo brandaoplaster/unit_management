@@ -18,4 +18,20 @@ defmodule UnitManagementWeb.StatesView do
       }
     }
   end
+
+  def render("state.json", %{
+        state: %State{
+          id: id,
+          name: name,
+          initials: initials
+        }
+      }) do
+    %{
+      state: %{
+        id: id,
+        name: name,
+        initials: initials
+      }
+    }
+  end
 end

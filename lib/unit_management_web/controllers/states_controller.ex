@@ -13,4 +13,12 @@ defmodule UnitManagementWeb.StatesController do
       |> render("create.json", state: state)
     end
   end
+
+  def show(conn, %{"id" => id}) do
+    with {:ok, %State{} = state} <- UnitManagement.get_state(id) do
+      conn
+      |> put_status(:ok)
+      |> render("state.json", state: state)
+    end
+  end
 end
