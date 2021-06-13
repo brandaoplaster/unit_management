@@ -39,4 +39,12 @@ defmodule UnitManagementWeb.StatesController do
       |> render("state.json", state: state)
     end
   end
+
+  def delete(conn, %{"id" => id}) do
+    with {:ok, %State{}} <- UnitManagement.delete_state(id) do
+      conn
+      |> put_status(:no_content)
+      |> text("")
+    end
+  end
 end
