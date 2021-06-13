@@ -3,7 +3,7 @@ use Mix.Config
 # Configure your database
 config :unit_management, UnitManagement.Repo,
   username: "root",
-  password: "",
+  password: "root",
   database: "unit_management_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
