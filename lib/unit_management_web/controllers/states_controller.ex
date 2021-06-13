@@ -7,13 +7,11 @@ defmodule UnitManagementWeb.StatesController do
   action_fallback FallbackController
 
   def index(conn, _params) do
-    # with {:ok, %State{} = states} <- UnitManagement.get_all_state do
-      states = UnitManagement.get_all_state
-      states |> IO.inspect()
-      conn
-      |> put_status(:ok)
-      |> render("index.json", states: states)
-    # end
+    states = UnitManagement.get_all_state
+
+    conn
+    |> put_status(:ok)
+    |> render("index.json", states: states)
   end
 
   def create(conn, params) do
