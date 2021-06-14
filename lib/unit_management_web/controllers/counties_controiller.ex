@@ -13,4 +13,20 @@ defmodule UnitManagementWeb.CountiesController do
       |> render("create.json", county: county)
     end
   end
+
+  def index(conn, _params) do
+    counties = UnitManagement.get_all_counties()
+
+    conn
+    |> put_status(:ok)
+    |> render("index.json", counties: counties)
+  end
+
+  def show(conn, %{"id" => id}) do
+    with {:ok, %County{} = county} <- UnitManagement.get_county(id) do
+      conn
+      |> put_status(:ok)
+      |> render("county.json", county: county)
+    end
+  end
 end
