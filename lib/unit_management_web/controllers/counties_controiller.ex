@@ -29,4 +29,12 @@ defmodule UnitManagementWeb.CountiesController do
       |> render("county.json", county: county)
     end
   end
+
+  def delete(conn, %{"id" => id}) do
+    with {:ok, %County{}} <- UnitManagement.delete_county(id) do
+      conn
+      |> put_status(:no_content)
+      |> text("")
+    end
+  end
 end
