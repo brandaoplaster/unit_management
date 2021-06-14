@@ -8,6 +8,7 @@ defmodule UnitManagementWeb.Router do
   scope "/api", UnitManagementWeb do
     pipe_through :api
     resources "states", StatesController, except: [:new, :edit]
+    resources "counties", CountiesController, except: [:new, :edit]
   end
 
   if Mix.env() in [:dev, :test] do
