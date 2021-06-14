@@ -9,6 +9,7 @@ defmodule UnitManagement do
   alias UnitManagement.Counties.Get, as: CountyGet
   alias UnitManagement.Counties.Get, as: CountyGetAll
   alias UnitManagement.Counties.Delete, as: CountyDelete
+  alias UnitManagement.Counties.Update, as: CountyUpdate
 
   defdelegate create_state(params), to: StateCreate, as: :call
   defdelegate get_state(id), to: StateGet, as: :get_by_id
@@ -20,4 +21,5 @@ defmodule UnitManagement do
   defdelegate get_all_counties, to: CountyGetAll, as: :get_all
   defdelegate get_county(id), to: CountyGet, as: :get_by_id
   defdelegate delete_county(id), to: CountyDelete, as: :call
+  defdelegate update_county(params), to: CountyUpdate, as: :call
 end

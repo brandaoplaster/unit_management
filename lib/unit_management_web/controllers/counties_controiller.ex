@@ -30,6 +30,14 @@ defmodule UnitManagementWeb.CountiesController do
     end
   end
 
+  def update(conn, params) do
+    with {:ok, %County{} = county} <- UnitManagement.update_county(params) do
+      conn
+      |> put_status(:ok)
+      |> render("county.json", county: county)
+    end
+  end
+
   def delete(conn, %{"id" => id}) do
     with {:ok, %County{}} <- UnitManagement.delete_county(id) do
       conn
